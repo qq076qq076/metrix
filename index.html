@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>METRIX</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header class="container">
+            <img class="logo" src="images/logo.png" alt="logo">
+            <nav>
+                <ul>
+                    <li class="active">首頁</li>
+                    <li>最新消息</li>
+                    <li>聯繫我們</li>
+                    <li class="languageSelection">
+                        <img :src="languageList[lan].img" />
+                        <ul>
+                            <li v-for="language of languageList">
+                                <img :src="language.img" />
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="carousel" @mouseover="hoverBanner=true" @mouseleave="hoverBanner=false">
+            <div class="banner-list">
+                <a v-for="(banner,index) of bannerList" :href="banner.url" :class="{show:showBanner===index}">
+                    <img :src="banner.img" />
+                </a>
+            </div>
+            <div class="container point">
+                <div v-for="(banner,index) of bannerList" :class="{show:showBanner===index}" @click="clickBanner(index)"></div>
+            </div>
+        </section>
+        <section class="container description">
+            <p>我们致力于带给玩家更丰富有趣的游戏体验。搭配各专业领域人才的优良技术与知识，</p>
+            <p>除了已布局的东南亚及内地，我们也将朝着日本及欧美市场迈进。</p>
+            <div class="hasIcon">
+                <img class="icon" src="images/game-icon.png" alt="game-icon" />
+                <div class="col">
+                    <p class="title">各式游戏</p>
+                    <p>我们和国内外知名游戏大厂合作，专营代理，并提供捕鱼机及跑灯ㄧ之PG，GD，保证客户取得最齐全的游戏类型。</p>
+                </div>
+            </div>
+        </section>
+        <section class="game">
+            <div class="container">
+                <a v-for="game of gameList" :href="game.url" :class="{comming:game.comming}">
+                    <img :src="game.img" />
+                    <div class="cover">
+                        <p>立即前往</p>
+                        <i>GO</i>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <footer>
+            <p>Copyright © 2015-2018 ME Gaming Co., Ltd. All Rights reserved</p>
+            <p class="version">Version 1.0.0</p>
+        </footer>
+    </div>
+</body>
+<script src="lib/vue.dev.js"></script>
+<script src="index.js"></script>
+
+</html>
