@@ -52,9 +52,19 @@ new Vue({
         ],
         languageList: [
             {
+                value: 'cn',
                 img: 'images/lan/cn-icon.png',
-            }
-        ]
+            },
+            {
+                value: 'en',
+                img: 'images/lan/en-icon.png',
+            },
+            {
+                value: 'thai',
+                img: 'images/lan/thai-icon.png',
+            },
+        ],
+        isOpenLanguage: false,
     },
     created() {
         this.timer = setInterval(this.carousel, 4000);
@@ -69,6 +79,9 @@ new Vue({
             clearInterval(this.timer);
             this.showBanner = showBanner;
             this.timer = setInterval(this.carousel, 4000);
-        }
+        },
+        changeLanguage: function (languageIndex) {
+            this.lan = languageIndex;
+        },
     }
 })

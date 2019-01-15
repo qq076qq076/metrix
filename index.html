@@ -14,10 +14,10 @@
                     <li class="active">首頁</li>
                     <li>最新消息</li>
                     <li>聯繫我們</li>
-                    <li class="languageSelection">
+                    <li class="languageSelection" @click="isOpenLanguage = !isOpenLanguage">
                         <img :src="languageList[lan].img" />
-                        <ul>
-                            <li v-for="language of languageList">
+                        <ul :class="{show:isOpenLanguage}">
+                            <li v-for="(language,index) of languageList" @click="changeLanguage(index)">
                                 <img :src="language.img" />
                             </li>
                         </ul>
